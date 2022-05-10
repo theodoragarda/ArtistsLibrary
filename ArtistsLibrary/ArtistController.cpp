@@ -7,7 +7,7 @@ ArtistController::ArtistController(ArtistRepository& repository) {
 void ArtistController::addArtist(Artist* artist) {
 	this->m_repository.addArtist(artist);
 	m_undoStack.push(std::make_pair(ActionType::ADD, artist));
-	//this->m_repository.iterateAndSave("musical_instruments_inventory.csv");
+	//this->m_repository.iterateAndSave("artists_library.csv");
 }
 
 void ArtistController::displayAll() {
@@ -21,7 +21,7 @@ void ArtistController::removeByID(int id) {
 	if (i) {
 		m_undoStack.push(std::make_pair(ActionType::REMOVE, i));
 	}
-	//this->m_repository.iterateAndSave("musical_instruments_inventory.csv");
+	//this->m_repository.iterateAndSave("artists_library.csv");
 }
 
 int ArtistController::size() {
@@ -47,7 +47,7 @@ void ArtistController::undo() {
 		this->m_undoStack.pop();
 		this->m_repository.addArtist(this->m_redoStack.top().second);
 	}
-	//this->m_repository.iterateAndSave("musical_instruments_inventory.csv");
+	//this->m_repository.iterateAndSave("artists_library.csv");
 }
 
 void ArtistController::redo() {
@@ -61,13 +61,13 @@ void ArtistController::redo() {
 		this->m_redoStack.pop();
 		this->m_repository.removeArtist(this->m_undoStack.top().second->getID());
 	}
-	//this->m_repository.iterateAndSave("musical_instruments_inventory.csv");
+	//this->m_repository.iterateAndSave("artists_library.csv");
 }
 
 void ArtistController::read() {
-	this->m_repository.readData("musical_instruments_inventory.csv");
+	this->m_repository.readData("artists_library.csv");
 }
 
 void ArtistController::save() {
-	this->m_repository.iterateAndSave("musical_instruments_inventory.csv");
+	this->m_repository.iterateAndSave("artists_library.csv");
 }

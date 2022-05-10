@@ -73,7 +73,7 @@ int main() {
 	repo.addArtist(&hh1);
 	repo.addArtist(&rnb1);
 
-	repo.iterateAndSave("instruments.csv");
+	repo.iterateAndSave("artists.csv");
 
 	repo.display(cout, [](Artist* i)->bool {
 		if (dynamic_cast<KHH*>(i)) {

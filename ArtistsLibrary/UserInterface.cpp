@@ -26,8 +26,8 @@ void UserInterface::add() {
 
 	if (option1 == 'y') {
 		cout << "khh artist or krnb artist?" << endl;
-		cout << "\t h - String insturment" << endl;
-		cout << "\t r - Woodwind instrument" << endl;
+		cout << "\t h - KHH" << endl;
+		cout << "\t r - KRnB" << endl;
 
 		cout << "Your option: "; cin >> option2;
 		cout << endl;
@@ -53,7 +53,7 @@ void UserInterface::add() {
 			cout << endl;
 			cout << "Enter the number of albums: "; cin >> nrAlbums;
 			cout << endl;
-			cout << "Enter the type: "; cin >> name;
+			cout << "Enter the name: "; cin >> name;
 			cout << endl;
 
 			KRnB* rartist = new KRnB{ id, streams, nrAlbums, company, name };
@@ -72,7 +72,7 @@ void UserInterface::add() {
 
 void UserInterface::remove() {
 	int id;
-	cout << "Enter the ID of the instrument you want to remove: "; cin >> id;
+	cout << "Enter the ID of the artist you want to remove: "; cin >> id;
 	m_controller.removeByID(id);
 }
 

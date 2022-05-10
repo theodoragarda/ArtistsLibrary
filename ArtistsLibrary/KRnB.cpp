@@ -51,7 +51,7 @@ void KRnB::display(ostream& os) const {
 	os << setw(30);
 	os << "Nr. albums: " << m_nrAlbums << endl;
 	os << setw(30);
-	os << "Type: " << m_name << endl;
+	os << "Name: " << m_name << endl;
 	os << setw(30);
 	os << "Company: " << m_company << endl;
 }
