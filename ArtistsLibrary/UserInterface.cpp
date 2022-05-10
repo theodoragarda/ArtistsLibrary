@@ -132,8 +132,8 @@ void UserInterface::showMenu() {
 					break;
 				}
 			}
-			catch (...) {
-				throw exception("Invalid command!");
+			catch (std::invalid_argument &e) {
+                std::cout<<e.what();
 			}
 
 		case'u':

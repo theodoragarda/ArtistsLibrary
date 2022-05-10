@@ -1,0 +1,13 @@
+# ninja log v5
+9	2208	1652165419254875891	CMakeFiles/ArtistsLibrary.dir/ArtistsLibraryTest/pch.cpp.o	edea2b4dfc5b3082
+0	2434	1652165419480230975	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/Artist.cpp.o	5b3a25a3d70ff810
+6	2435	1652165419481057680	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/KHH.cpp.o	c19ad9da6482fec8
+7	2437	1652165419481957982	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/main.cpp.o	7947bd320d4bf645
+1	2462	1652165419513610063	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/ArtistController.cpp.o	7a7f9f874ede72b1
+3	1718	1652165861604379006	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/KRnB.cpp.o	42bd965a82d61a65
+6	1973	1652165861862489195	CMakeFiles/ArtistsLibrary.dir/ArtistsLibraryTest/pch.cpp.o	edea2b4dfc5b3082
+3	2115	1652165862007140327	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/main.cpp.o	7947bd320d4bf645
+2	2180	1652165862074415165	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/ArtistController.cpp.o	7a7f9f874ede72b1
+3	1281	1652166274385562008	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/UserInterface.cpp.o	669a31662f1e6e6e
+4	1024	1652168227780541365	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/ArtistRepository.cpp.o	f148141ccdaf4eee
+2	981	1652168328556301288	CMakeFiles/ArtistsLibrary.dir/ArtistsLibrary/ArtistRepository.cpp.o	f148141ccdaf4eee

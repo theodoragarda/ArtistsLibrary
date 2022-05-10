@@ -1,7 +1,7 @@
 #include "ArtistRepository.h"
 
 ArtistRepository::ArtistRepository() {
-	this->readData("musical_instruments_inventory.csv");
+	this->readData("artists_library.csv");
 }
 
 Artist* ArtistRepository::operator[](int i) {
@@ -84,52 +84,56 @@ void ArtistRepository::displayByType(string type) {
 }
 
 bool ArtistRepository::saveData(const char* csv_path, Artist* i) {
-	ofstream outputFile;
+    ofstream outputFile;
 
-	outputFile.open(csv_path, fstream::out);
+    outputFile.open(csv_path, fstream::out);
 
-	outputFile << i->getID() << "," << i->getStreams() << ",";
-	if (dynamic_cast<KHH*>(i)) {
-		outputFile << dynamic_cast<KHH*>(i)->getCompany() << "," << dynamic_cast<KHH*>(i)->getNrAlbums() << "," << dynamic_cast<KHH*>(i)->getType() << endl;
-	}
+    outputFile << i->getID() << "," << i->getStreams() << ",";
+    if (dynamic_cast<KHH *>(i)) {
+        outputFile << dynamic_cast<KHH *>(i)->getCompany() << "," << dynamic_cast<KHH *>(i)->getNrAlbums() << ","
+                   << dynamic_cast<KHH *>(i)->getName() << endl;
+    }
+    else {
+        if (dynamic_cast<KRnB *>(i)) {
+            outputFile << dynamic_cast<KRnB *>(i)->getCompany() << "," << dynamic_cast<KRnB *>(i)->getNrAlbums() << ","
+                       << dynamic_cast<KRnB *>(i)->getName() << endl;
+        }
+        else{
+        outputFile<<endl;
+        }
+    }
+        outputFile.close();
+        return true;
+    }
 
-	else {
-		if (dynamic_cast<KRnB*>(i)) {
-			outputFile << dynamic_cast<KRnB*>(i)->getCompany() << "," << dynamic_cast<KRnB*>(i)->getNrAlbums() << "," << dynamic_cast<KRnB*>(i)->getType() << endl;
-		}
-		outputFile.close();
-		return true;
-	}
+    void ArtistRepository::iterateAndSave(const char *csv_path) {
+        ifstream oldFile(csv_path);
+        ofstream outputFile("new_artists_library.csv");
 
-	void ArtistRepository::iterateAndSave(const char* csv_path) {
-		ifstream oldFile(csv_path);
-		ofstream outputFile("new_musical_instruments_inventory.csv");
+        for (auto i = 0; i < this->m_repo.size(); i++) {
+            this->m_repo[i]->saveToCSV(outputFile);
+            outputFile << endl;
+        }
+        if (!remove(csv_path) != 0) {
+            perror("Failed to delete file! :c");
+        } else {
+            rename("new_artists_library.csv", csv_path);
+        }
+    }
 
-		for (auto i = 0; i < this->m_repo.size(); i++) {
-			this->m_repo[i]->saveToCSV(outputFile);
-			outputFile << endl;
-		}
-		if (!remove(csv_path) != 0) {
-			perror("Failed to delete file! :c");
-		}
+    bool ArtistRepository::readData(const char *csv_path) {
+        ifstream inputFile;
+        string data;
 
-		else {
-			rename("new_musical_instruments_inventory.csv", csv_path);
-		}
-	}
+        inputFile.open(csv_path, fstream::in);
 
-	bool ArtistRepository::readData(const char* csv_path) {
-		ifstream inputFile;
-		string data;
+        do {
+            // reads data from the file until we reach the end of the file (EOF == true)
+            inputFile >> data;
 
-		inputFile.open(csv_path, fstream::in);
+        } while (!EOF);
 
-		do {
-			// reads data from the file until we reach the end of the file (EOF == true)
-			inputFile >> data;
+        inputFile.close();
+        return true;
+    }
 
-		} while (!EOF);
-
-		inputFile.close();
-		return true;
-	}

@@ -33,7 +33,7 @@ public:
 	 * \param rartist : the artist
 	 * \return the output stream
 	 */
-	friend ostream& operator<<(ostream& os, const KHH& rartist);
+	friend ostream& operator<<(ostream& os, const KRnB& rartist);
 
 	/**
 	 * Getter for the number of albums.
